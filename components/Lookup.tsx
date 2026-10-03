@@ -7,7 +7,7 @@ export default function Lookup(){
  const [number,setNumber]=useState(""); const [result,setResult]=useState<any>(null); const [error,setError]=useState(""); const [loading,setLoading]=useState(false); const [copied,setCopied]=useState(false);
  function lookup(){
   setError("");setResult(null); const n=number.replace(/\\D/g,"");
-  if(!/^01\\d{9}$/.test(n)){setError("Enter a valid 11-digit Bangladesh mobile number.");return}
+  if (!/^01\d{9}$/.test(n)){setError("Enter a valid 11-digit Bangladesh mobile number.");return}
   setLoading(true); setTimeout(()=>{const p=prefixes[n.slice(0,3)]; if(!p){setError("This prefix is not in the supported reference.");setLoading(false);return}
    setResult({success:true,number:n,carrier:p.carrier,carrier_code:p.code,location:"Bangladesh",type:"Mobile",international_format:"+88"+n});setLoading(false)
   },350);
