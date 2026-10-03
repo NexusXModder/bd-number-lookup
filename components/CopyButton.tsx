@@ -1,0 +1,3 @@
+ "use client";
+import {useState} from "react"; import {Copy,Check} from "lucide-react";
+export function CopyButton({text}:{text:string}){const[c,setC]=useState(false);return <button onClick={()=>{navigator.clipboard?.writeText(text);setC(true);setTimeout(()=>setC(false),1200)}} className="absolute right-3 top-3 rounded-lg border border-white/10 bg-white/5 p-2 text-slate-400 hover:text-white">{c?<Check size={15}/>:<Copy size={15}/>}</button>}
